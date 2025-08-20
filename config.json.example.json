@@ -1,0 +1,16 @@
+{
+  "api_id": 123456, 
+  "api_hash": "your_api_hash_here",
+  "phone_number": "+10000000000",
+  "groups": [
+    "https://t.me/examplegroup1",
+    "https://t.me/examplegroup2"
+  ],
+  "messages": [
+    "🔥 Example Promo 1",
+    "🚀 Example Promo 2",
+    "💡 Example Promo 3"
+  ],
+  "delay_between_groups": 10,
+  "delay_between_rounds": 600
+}

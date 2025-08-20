@@ -1,55 +1,77 @@
-# 🚀 Telegram Auto Sender by theguyso
+# Telegram Auto Sender by Theguyso
 
-A Python automation script using [Telethon](https://github.com/LonamiWebs/Telethon) that sends scheduled messages into selected Telegram groups or channels every 10 minutes.  
-Supports rotating messages, delays between groups, and logging to file.  
-
----
-
-## ✨ Features
-- ✅ Sends messages as your user account (not a bot).  
-- ✅ Rotates through multiple messages in order (1 → 2 → 3 → repeat).  
-- ✅ Configurable delay between groups (default: 10 seconds).  
-- ✅ Configurable delay between rounds (default: 10 minutes).  
-- ✅ Logging to telegram_auto_sender.log for full history.  
+A Python automation script that sends rotating messages to selected Telegram groups/channels at regular intervals.  
+All configuration (API keys, group links, messages, delays) is managed through `config.json` for security and convenience.
 
 ---
 
-## 📦 Requirements
-- Python 3.8+  
-- Telethon  
+## 🚀 Features
+- Login with your **Telegram user account** (via Telethon).
+- Send messages to multiple groups/channels on a schedule.
+- Rotate through multiple messages in sequence.
+- Configurable delays between messages and rounds.
+- Logging of all sent messages and errors.
+
+---
+
+## 🛠 Requirements
+- Python 3.8+
+- [Telethon](https://github.com/LonamiWebs/Telethon)
 
 Install dependencies:
 ```bash
 pip install -r requirements.txt
 
-⚙️ Setup
- 1. Get your API_ID and API_HASH from my.telegram.org. (https://my.telegram.org/)
- 2. Open telegram_auto_sender.py and update:
 
- API_ID = 123456        # your real api_id
-API_HASH = "abcdef123" # your real api_hash
+⚙️ Configuration
 
-3. Update your target groups and messages:
+Create a file named config.json in the project folder:
+{
+  "api_id": 123456,
+  "api_hash": "abcdef123456789",
+  "groups": [
+    "https://t.me/mygroup1",
+    "https://t.me/mygroup2"
+  ],
+  "messages": [
+    "🔥 Promo 1: Get 1,000 followers for $1.00 only!",
+    "🚀 Promo 2: Twitter followers with 30 days refill guarantee!",
+    "💡 Promo 3: High-quality Twitter followers with 30 days refill guarantee!"
+  ],
+  "delay_between_groups": 10,
+  "delay_between_rounds": 600
+}
 
-TARGET_GROUPS = [
-    "https://t.me/yourgroup1",
-    "https://t.me/yourgroup2"
-]
+api_id & api_hash: Get from my.telegram.org
 
-MESSAGES = [
-    """🔥 Promo 1: Get 1,000 followers for $1.00 only!""",
-    """🚀 Promo 2: Twitter followers with 30 days refill guarantee!"""
-]
+groups: List of group/channel links where messages will be sent
 
-4. Run the script:
+messages: Messages that will be rotated in order
+
+delay_between_groups: Seconds to wait between sending to each group
+
+delay_between_rounds: Seconds to wait before restarting the loop
+
+
+▶️ Usage
+
+Run the script:
+
+
 python telegram_auto_sender.py
 
-⏱️ Timing
+On first run, you’ll be asked for a login code (Telegram will send it to your account).
 
-You can change delays easily in the script:
+📜 Logs
 
-DELAY_BETWEEN_GROUPS = 10   # seconds between each group
-DELAY_BETWEEN_ROUNDS = 600  # seconds between rounds (10 minutes)
+All activity is logged to telegram_auto_sender.log:
+
+✅ Success messages
+
+❌ Errors
+
+
+
 
 📜 License
 
