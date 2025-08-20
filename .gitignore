@@ -1,0 +1,4 @@
+*.session
+telegram_auto_sender.log
+__pyache__/
+.env
